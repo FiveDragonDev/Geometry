@@ -14,9 +14,9 @@
             Point2 = p2;
             Point3 = p3;
 
-            float a = (float)Math.Sqrt(Math.Pow(p2.X - p3.X, 2) + Math.Pow(p2.Y - p3.Y, 2));
-            float b = (float)Math.Sqrt(Math.Pow(p1.X - p3.X, 2) + Math.Pow(p1.Y - p3.Y, 2));
-            float c = (float)Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
+            var a = (float)Math.Sqrt(Math.Pow(p2.X - p3.X, 2) + Math.Pow(p2.Y - p3.Y, 2));
+            var b = (float)Math.Sqrt(Math.Pow(p1.X - p3.X, 2) + Math.Pow(p1.Y - p3.Y, 2));
+            var c = (float)Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
 
             float cosAngle = (b * b + a * a - c * c) / (2 * b * a);
             AngleBetweenPoint = (float)Math.Acos(cosAngle) * 2 * MathHelper.Rad2Deg;

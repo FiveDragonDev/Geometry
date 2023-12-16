@@ -20,7 +20,7 @@ namespace Geometry.Polar
             _graphics.Clear(Color.White);
         }
 
-        public void Fill(Color color) => _graphics.Clear(color);
+        public void Clear(Color color) => _graphics.Clear(color);
 
         public void SetObject(Point point)
         {

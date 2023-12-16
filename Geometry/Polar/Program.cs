@@ -7,17 +7,21 @@ namespace Geometry.Polar.Tests
         public static void Main()
         {
             Canvas canvas = new(1920 * 2, 1080 * 2);
+            canvas.Clear(Color.Black);
+            Point[] stars = new Point[1000];
+            for (int i = 0; i < 1000; i++)
+            {
+                Point point = new(Random.Value * 10000, Random.Value * 360)
+                { Size = 4, Color = Color.White };
+                stars[i] = point;
+            }
 
             for (int t = 1; t <= 300; t++)
             {
                 var start = DateTime.Now;
-                canvas.Fill(Color.Black);
+                canvas.Clear(Color.Black);
                 for (int i = 0; i < 1000; i++)
-                {
-                    Point point = new(Random.Value * 10000, Random.Value * 360 * t)
-                    { Size = 5, Color = Color.White };
-                    canvas.SetObject(point);
-                }
+                    canvas.SetObject(stars[i]);
                 for (int i = 0; i <= 100000 / 1.5; i++)
                 {
                     Point point = new((float)i / 10 / (t),

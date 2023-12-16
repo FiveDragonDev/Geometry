@@ -15,11 +15,7 @@ namespace Geometry
             for (int i = 1; i <= n; i++) result *= i;
             return result;
         }
-        public static bool IsPrime(int n)
-        {
-            if (!GetPrimeNumbers(n).Contains(n)) return false;
-            return true;
-        }
+        public static bool IsPrime(this int n) => !GetPrimeNumbers(n).Contains(n);
         public static int[] GetPrimeNumbers(int n)
         {
             bool[] prime = new bool[n + 1];

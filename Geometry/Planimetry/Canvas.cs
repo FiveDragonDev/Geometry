@@ -21,10 +21,7 @@ namespace Geometry.Planimetry
 
         public void Save(string path) => _bitmap.Save(path);
 
-        public void Fill(Color color)
-        {
-            _graphics.Clear(color);
-        }
+        public void Clear(Color color) => _graphics.Clear(color);
         public void SetObject(Point point)
         {
             Point p1 = new Point(Width / 2, Height / 2) - point * point.Size;
@@ -38,6 +35,14 @@ namespace Geometry.Planimetry
             Point p2 = new Point(Width / 2, Height / 2)
                 - interval.Point1 * interval.Size;
             _graphics.DrawLine(new(interval.Color), p1.X, p1.Y, p2.X, p2.Y);
+        }
+        public void SetObject(Vector vector)
+        {
+            Point p1 = new Point(Width / 2, Height / 2)
+                - vector.Start * vector.Size;
+            Point p2 = new Point(Width / 2, Height / 2)
+                - vector.End * vector.Size;
+            _graphics.DrawLine(new(vector.Color), p1.X, p1.Y, p2.X, p2.Y);
         }
         public void SetObject(Angle angle)
         {
@@ -73,7 +78,7 @@ namespace Geometry.Planimetry
                 new(p4.X, p4.Y),
                 new(p1.X, p1.Y)
             };
-            _graphics.FillPolygon(new SolidBrush(quadrangle.Color), path);
+            _graphics.DrawPolygon(new(quadrangle.Color), path);
         }
         public void SetObject(Triangle triangle)
         {
@@ -91,12 +96,13 @@ namespace Geometry.Planimetry
                 new(p3.X, p3.Y),
                 new(p1.X, p1.Y)
             };
-            _graphics.FillPolygon(new SolidBrush(triangle.Color), path);
+            _graphics.DrawPolygon(new(triangle.Color), path);
         }
         public void SetObject(Circle circle)
         {
-            Point origin = new Point(Width / 2, Height / 2) - circle.Origin;
-            _graphics.FillEllipse(new SolidBrush(circle.Color),
+            Point origin = new Point(Width / 2, Height / 2) -
+                circle.Origin - (circle.Radius * circle.Size);
+            _graphics.DrawEllipse(new(circle.Color),
                 origin.X, origin.Y, circle.Diameter * circle.Size,
                 circle.Diameter * circle.Size);
         }
