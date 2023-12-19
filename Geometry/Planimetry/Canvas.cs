@@ -28,6 +28,12 @@ namespace Geometry.Planimetry
             _graphics.FillEllipse(new SolidBrush(point.Color),
                 p1.X, p1.Y, point.Size, point.Size);
         }
+        public void SetObject(Polar.Point point)
+        {
+            float x = Width / 2 + point.Distance * (float)Math.Cos(point.Angle);
+            float y = Height / 2 + point.Distance * (float)Math.Sin(point.Angle);
+            _graphics.FillEllipse(new SolidBrush(point.Color), x, y, point.Size, point.Size);
+        }
         public void SetObject(Interval interval)
         {
             Point p1 = new Point(Width / 2, Height / 2)
@@ -35,6 +41,13 @@ namespace Geometry.Planimetry
             Point p2 = new Point(Width / 2, Height / 2)
                 - interval.Point1 * interval.Size;
             _graphics.DrawLine(new(interval.Color), p1.X, p1.Y, p2.X, p2.Y);
+        }
+        public void SetObject(Ray ray)
+        {
+            Point p1 = new Point(Width / 2, Height / 2)
+                - ray.Origin * ray.Size;
+            Point p2 = new Point(Width, Height) * -ray.Direction;
+            _graphics.DrawLine(new(ray.Color), p1.X, p1.Y, p2.X, p2.Y);
         }
         public void SetObject(Vector vector)
         {

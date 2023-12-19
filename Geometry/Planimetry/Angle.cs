@@ -22,6 +22,8 @@
             AngleBetweenPoint = (float)Math.Acos(cosAngle) * 2 * MathHelper.Rad2Deg;
         }
 
+        public float Bisector => AngleBetweenPoint / 2;
+
         public static explicit operator float(Angle angle) => angle.AngleBetweenPoint;
         public override string ToString() => $"{AngleBetweenPoint} Deg";
 

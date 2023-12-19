@@ -12,6 +12,7 @@ namespace Geometry.Planimetry.Test
             VectorTests();
             AngleTests();
             IntervalTests();
+            RayTests();
             ShapesTests();
             Console.ReadKey();
         }
@@ -68,6 +69,18 @@ namespace Geometry.Planimetry.Test
             canvas.SetObject(a);
             canvas.SetObject(b);
             canvas.Save($"{ResultsPath}/Vectors.png");
+        }
+        private static void RayTests()
+        {
+            Canvas canvas = new(800, 600);
+
+            Ray a = new(new(0, 0), new(1, 1));
+
+            Console.WriteLine("\n-- Ray --");
+            Console.WriteLine(a);
+
+            canvas.SetObject(a);
+            canvas.Save($"{ResultsPath}/Ray.png");
         }
         private static void AngleTests()
         {

@@ -1,4 +1,4 @@
-﻿namespace Geometry.Polar
+﻿namespace Geometry.Planimetry.Polar
 {
     public class Point : GeometryObject
     {
@@ -34,6 +34,7 @@
         public static Point operator /(Point a, float b)
         { return a / new Point(b); }
 
+        public Planimetry.Point ToPlanimetry => new(X, Y);
         public override string ToString() => $"({Distance}, {Angle} Deg)";
     }
 }

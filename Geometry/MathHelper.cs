@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Geometry
+﻿namespace Geometry
 {
     public static class MathHelper
     {

@@ -5,7 +5,7 @@
     <TargetFramework>net7.0-windows10.0.17763.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Geometry.Planimetry.Test.Program</StartupObject>
+    <StartupObject>Geometry.Planimetry.Polar.Tests.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
